@@ -101,15 +101,15 @@ body::before {
     cursor: pointer;
 }
 
-.container__botao-desabilitado {
+.container__botao-limpar {
     border-radius: 16px;
-    background: #6f6f70;
+    background: #3636b6;
     padding: 16px 24px;
     font-size: 24px;
     width: 100%;
     font-weight: 700;
     border: none;
-    cursor: not-allowed;
+    cursor: pointer;
 }
 
 h1 {
