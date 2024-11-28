@@ -4,31 +4,6 @@ function exibirTextoNaTela(texto) {
     campo.innerHTML = texto;
 }
 
-// Função para verificar se os campos estão vazios e depois se são números válidos
-function validarCampos() {
-    // Obtém os valores dos campos
-    const doNumero = document.getElementById('de').value;
-    const ateNumero = document.getElementById('ate').value;
-    const quantidadeSorteada = document.getElementById('quantidade').value;
-
-    // Verifica se algum campo está vazio
-    if (doNumero === "" || ateNumero === "" || quantidadeSorteada === '') {
-        console.error('Um ou mais campos estão vazios.');
-        exibirTextoNaTela('Por favor, preencha todos os campos!');
-        return false; // Retorna falso para interromper o processo
-    }
-
-    // Se os campos não estiverem vazios, verifica se os valores são números válidos
-    if (isNaN(doNumero) || isNaN(ateNumero) || isNaN(quantidadeSorteada)) {
-        console.error('Um ou mais valores inseridos não são números válidos');
-        exibirTextoNaTela('Por favor, insira apenas números nos campos!');
-        return false; // Retorna falso para interromper o processo
-    }
-
-    // Se passar em ambas as validações, retorna verdadeiro
-    return true;
-}
-
 // Função para validar os campos
 function validarCampos() {
     const doNumero = document.getElementById('de').value;
@@ -42,6 +17,21 @@ function validarCampos() {
         return false; // Retorna falso para interromper o processo
     }
     return true; // Retorna verdadeiro se tudo estiver correto
+}
+
+// Função para ativar ou desativar o botão de limpar
+function verificarBotaoLimpar() {
+    const doNumero = document.getElementById('de').value;
+    const ateNumero = document.getElementById('ate').value;
+    const quantidadeSorteada = document.getElementById('quantidade').value;
+
+    // Se qualquer campo estiver preenchido, ativa o botão de limpar
+    if (doNumero !== "" || ateNumero !== "" || quantidadeSorteada !== "") {
+        document.getElementById('btn-limpar').removeAttribute('disabled');
+    } else {
+        // Caso contrário, desabilita o botão de limpar
+        document.getElementById('btn-limpar').setAttribute('disabled', true);
+    }
 }
 
 // Função de limpar
