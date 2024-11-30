@@ -109,7 +109,7 @@ body::before {
     width: 100%;
     font-weight: 700;
     border: none;
-    cursor: pointer;
+    cursor: not-allowed;
 }
 
 h1 {

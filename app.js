@@ -19,6 +19,7 @@ function validarCampos() {
     return true; // Retorna verdadeiro se tudo estiver correto
 }
 
+const botaoLimpar = document.getElementById('btn-limpar');
 // Função para ativar ou desativar o botão de limpar
 function verificarBotaoLimpar() {
     const doNumero = document.getElementById('de').value;
@@ -28,14 +29,17 @@ function verificarBotaoLimpar() {
     // Se qualquer campo estiver preenchido, ativa o botão de limpar
     if (doNumero !== "" || ateNumero !== "" || quantidadeSorteada !== "") {
         document.getElementById('btn-limpar').removeAttribute('disabled');
+        botaoLimpar.style.cursor = 'pointer';
     } else {
         // Caso contrário, desabilita o botão de limpar
         document.getElementById('btn-limpar').setAttribute('disabled', true);
+        botaoLimpar.style.cursor = 'not-allowed';
     }
 }
 
 // Função de limpar
 function limpar() {
+    console.log('Limpando os campos!')
     // Limpa os valores dos campos
     document.getElementById('quantidade').value = '';
     document.getElementById('de').value = '';
@@ -46,6 +50,7 @@ function limpar() {
 
     // Desabilita o botão de limpar
     document.getElementById('btn-limpar').setAttribute('disabled', true);
+    botaoLimpar.style.cursor = 'not-allowed';
 }
 
 // Função de sorteio
@@ -99,6 +104,7 @@ function sortear() {
 
     // Exibe a mensagem final na tela
     exibirTextoNaTela(mensagemDeResultado);
+    console.log('Sorteando os números!');
 }
 
 // Adiciona eventos para verificar sempre que os campos mudarem
